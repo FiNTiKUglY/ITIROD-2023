@@ -13,3 +13,9 @@ Functions:
 4. Mix songs in order / playlist
 5. Authorisation
 6. Default player functions (volume, resume button etc.)
+
+Data models:
+user: username, password, avatar
+track: author_id, album_id, title, duration, file
+album: title, author_id, total_duration, total_tracks
+author: name, avatar
