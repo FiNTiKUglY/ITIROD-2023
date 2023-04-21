@@ -8,11 +8,10 @@
         <link rel="stylesheet" href="css/order/order.css">
         <link rel="stylesheet" href="css/page-content/page-content.css">
         <link rel="stylesheet" href="css/player/player.css">
-        <link rel="stylesheet" href="css/album-head/album-head.css">
         <link rel="stylesheet" href="css/track/track.css">
+        <link rel="stylesheet" href="css/auth/auth.css">
         <link rel="stylesheet" href="css/icon/icon.css">
     </head>
-
     <body>
         <aside class="menu">
             <nav>
@@ -86,102 +85,16 @@
             </ul>
         </section>
         <main class="page-content">
-            <div class="album-head album-head-grid">
-                <div class="head-img-container">
-                    <img src="img/test-img.png" class="head-img">
-                    <button class="button-icon button-icon-head">
-                        <img src="img/heart.svg" class="icon icon-white">
-                    </button>
-                </div>
-                <div class="head-description">
-                    <p class="head-title">Альбом</p>
-                    <p class="head-subtitle">Исполнитель, 2023</p>
-                    <p class="head-subsubtitle">5 треков, 15 мин 15 сек</p>
-                </div>
-            </div>
-            <section class="album-tracks">
-                <ul class="track-container">
-                    <li>
-                        <div class="track-card">
-                            <img src="img/test-img.png" class="track-img">
-                            <div class="track-description">
-                                <p class="track-title">Трек</p>
-                                <p class="track-subtitle">Исполнитель</p>
-                            </div>
-                            <p class="card-subtitle">0:42</p>
-                            <button class="button-icon">
-                                <img src="img/heart.svg" class="icon">
-                            </button>
-                            <button class="button-icon icon-red">
-                                <img src="img/play.svg" class="icon">
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="track-card">
-                            <img src="img/test-img.png" class="track-img">
-                            <div class="track-description">
-                                <p class="track-title">Трек</p>
-                                <p class="track-subtitle">Исполнитель</p>
-                            </div>
-                            <p class="card-subtitle">0:42</p>
-                            <button class="button-icon">
-                                <img src="img/heart.svg" class="icon">
-                            </button>
-                            <button class="button-icon icon-red">
-                                <img src="img/play.svg" class="icon">
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="track-card">
-                            <img src="img/test-img.png" class="track-img">
-                            <div class="track-description">
-                                <p class="track-title">Трек</p>
-                                <p class="track-subtitle">Исполнитель</p>
-                            </div>
-                            <p class="card-subtitle">0:42</p>
-                            <button class="button-icon">
-                                <img src="img/heart.svg" class="icon">
-                            </button>
-                            <button class="button-icon icon-red">
-                                <img src="img/play.svg" class="icon">
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="track-card">
-                            <img src="img/test-img.png" class="track-img">
-                            <div class="track-description">
-                                <p class="track-title">Трек</p>
-                                <p class="track-subtitle">Исполнитель</p>
-                            </div>
-                            <p class="card-subtitle">0:42</p>
-                            <button class="button-icon">
-                                <img src="img/heart.svg" class="icon">
-                            </button>
-                            <button class="button-icon icon-red">
-                                <img src="img/play.svg" class="icon">
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="track-card">
-                            <img src="img/test-img.png" class="track-img">
-                            <div class="track-description">
-                                <p class="track-title">Трек</p>
-                                <p class="track-subtitle">Исполнитель</p>
-                            </div>
-                            <p class="card-subtitle">0:42</p>
-                            <button class="button-icon">
-                                <img src="img/heart.svg" class="icon">
-                            </button>
-                            <button class="button-icon icon-red">
-                                <img src="img/play.svg" class="icon">
-                            </button>
-                        </div>
-                    </li>
-                </ul>
+            <section class="auth">
+                <h1 class="auth__title">Регистрация</h1>
+                <form method="post">
+                    <div class="auth__form">
+                        <input class="auth__input" type="text" placeholder="Логин">
+                        <input class="auth__input" type="text" placeholder="Пароль">
+                        <input class="auth__input" type="text" placeholder="Подтвердите пароль">
+                        <button class="auth__button">Регистрация</button>
+                    </div>
+                </form>
             </section>
         </main>
         <section class="player">

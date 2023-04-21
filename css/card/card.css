@@ -51,15 +51,3 @@ ul.card-container > li:last-child {
 .card-subtitle {
     font-size: 0.7rem;
 }
-
-.card-title-mini {
-    width: 100%;
-    height: auto;
-    text-align: center;
-    justify-content: center;
-    font-size: 0.8rem;
-}
-
-.card-subtitle-mini {
-    font-size: 0.6rem;
-}
