@@ -30,6 +30,10 @@ p {
     width: calc(100%)
 }
 
+form {
+    width: 100%;
+}
+
 h1.white-title {
     text-align: center;
     color: #ffffff;
