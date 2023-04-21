@@ -1,22 +1,22 @@
 @media screen and (min-width:1000px) {
-    .menu-link {
+    .menu__link {
         color: #ffffff;
         font-size: 1.5rem;
     }
 
-    .menu-sublink {
+    .menu__sublink {
         color: #a2a2a2;
         font-size: 1.0rem;
     }
 
-    .icon-menu {
+    .menu__icon {
         width: 2.5rem;
         height: 2.5rem;
         filter: brightness(0) saturate(100%) invert(100%) 
         sepia(99%) saturate(0%) hue-rotate(40deg) brightness(101%) contrast(101%);
     }
 
-    .menu-item-size {
+    .menu__item-size {
         display: grid;
         grid-template-columns: 30% 70%;
         align-items: center;
@@ -29,24 +29,24 @@
 }
 
 @media screen and (max-width:1000px) {
-    .menu-link {
+    .menu__link {
         color: #ffffff;
         font-size: 1.0rem;
     }
 
-    .menu-sublink {
+    .menu__sublink {
         color: #a2a2a2;
         font-size: 0.7rem;
     }
 
-    .icon-menu {
+    .menu__icon {
         width: 2.2rem;
         height: 2.2rem;
         filter: brightness(0) saturate(100%) invert(100%) 
         sepia(99%) saturate(0%) hue-rotate(40deg) brightness(101%) contrast(101%);
     }
 
-    .menu-item-size {
+    .menu__item-size {
         display: grid;
         grid-template-columns: 30% 70%;
         align-items: center;
@@ -59,24 +59,24 @@
 }
 
 @media screen and (max-width:700px) {
-    .menu-link {
+    .menu__link {
         color: #ffffff;
         font-size: 0.7rem;
     }
 
-    .menu-sublink {
+    .menu__sublink {
         color: #a2a2a2;
         font-size: 0.6rem;
     }
 
-    .icon-menu {
+    .menu__icon {
         width: 1.9rem;
         height: 1.9rem;
         filter: brightness(0) saturate(100%) invert(100%) 
         sepia(99%) saturate(0%) hue-rotate(40deg) brightness(101%) contrast(101%);
     }
 
-    .menu-item-size {
+    .menu__item-size {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -98,15 +98,15 @@
     left: 0;
 }
 
-.menu-item {
+.menu__item {
     width: 100%;
 }
 
-.menu-logo {
+.menu__logo {
     height: 3.75rem;
 }
 
-.menu-profile {
+.menu__profile {
     height: 3.75rem;
 }
 
@@ -116,11 +116,11 @@
     align-items: center;
 }
 
-.menu-main {
+.menu__main {
     height: 3.2rem;
 }
 
-.menu-albums {
+.menu__albums {
     width: 100%;
     height: calc(100% - 220px);
     display: block;
@@ -134,10 +134,10 @@ ul.link-container {
     gap: 5px;
 }
 
-.menu-link:hover {
+.menu__link:hover {
     text-shadow:0 0 1.25rem #ffffff;
 }   
 
-.menu-sublink:hover {
+.menu__sublink:hover {
     text-shadow:0 0 1.25rem #a2a2a2;
 }
