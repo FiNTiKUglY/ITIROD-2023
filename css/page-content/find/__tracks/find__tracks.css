@@ -1,0 +1,5 @@
+.find__tracks {
+    width: 100%;
+    height: calc(92% - 340px);
+    overflow: auto;
+}

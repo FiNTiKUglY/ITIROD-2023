@@ -1,3 +1,9 @@
+@import url(./__bar/player__bar.css);
+@import url(./__controls/player__controls.css);
+@import url(./__time/player__time.css);
+@import url(./__track/player__track.css);
+@import url(./__volume/player__volume.css);
+
 .player {
     width: 100%;
     height: 10%;
@@ -8,129 +14,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.player__track {
-    width: 15%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.player__track__description {
-    width: calc(50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-@media screen and (min-width: 600px) {
-    .player__track__description__title {
-        color: #ffffff;
-        font-size: 1rem;
-        text-overflow: ellipsis;
-    }
-    
-    .player__track__description__subtitle {
-        color: #ffffff;
-        font-size: 0.7rem;
-        text-overflow: hidden;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .player__track__description__title {
-        color: #ffffff;
-        font-size: 0.7rem;
-    }
-    
-    .player__track__description__subtitle {
-        color: #ffffff;
-        font-size: 0.5rem;
-    }
-}
-
-.player__track__img {
-    height: 60%;
-    aspect-ratio: 1 / 1;
-    border: 1px solid #000000;
-    margin: 2px;
-}
-
-.player__controls {
-    width: 80%;
-    display: flex;
-    gap: 0.25rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-@media screen and (min-width: 1000px) {
-    .player__volume {
-        width: 15%;
-        padding-inline: 1rem;
-        display: flex;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
-    }
-    
-}
-
-@media screen and (max-width: 1000px) {
-    .player__volume {
-        width: 15%;
-        padding-inline: 1rem;
-        visibility: hidden;
-        display: flex;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
-    }
-    
-}
-
-.player__buttons {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.player__time {
-    color: #E55B5B;
-    font-size: 0.7rem;
-    margin-left: 0.25rem;
-}
-
-.player__time-current {
-    color: #E55B5B;
-    font-size: 0.7rem;
-    margin-right: 0.25rem;
-}
-
-.player__bar {
-    width: 100%;
-    height: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.player__bar-full {
-    width: 100%;
-    height: 4px;
-    background: #ffffff;
-}
-
-.player__bar-current {
-    width: 40%;
-    height: 4px;
-    background: #E55B5B;
 }

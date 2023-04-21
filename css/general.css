@@ -7,7 +7,6 @@
 body {
     width: 100%;
     height: 100vh;
-    font-family: 'Sansita';
     background-color: #ABA6A6;
     display: grid;
     place-items: center;
@@ -46,32 +45,8 @@ h1.white-title {
     text-align: center;
 }
 
-.find-artists {
-    width: 100%;
-    height: 25%;
-    min-height: 170px;
-}
-
 ul {
     list-style-type: none;
-}
-
-.find-albums {
-    width: 100%;
-    height: 25%;
-    min-height: 170px;
-}
-
-.find-tracks {
-    width: 100%;
-    height: calc(92% - 340px);
-    overflow: auto;
-}
-
-.album-tracks {
-    width: 100%;
-    height: 80%;
-    overflow: auto;
 }
 
 .button-icon {
