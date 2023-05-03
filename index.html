@@ -64,7 +64,7 @@
         <section class="sideorder">
             <h1 class="white-title white-title-size">Очередь</h1>
             <hr>
-            <ul class="track__container-mini">
+            <ul class="track__container-mini" id="order-tracks">
                 <li>
                     <div class="track__card-mini">
                         <img src="img/test-img.png" class="track__img-mini">
@@ -253,7 +253,7 @@
             </section>
         </main>
         <section class="player">
-            <div class="player__track">
+            <div class="player__track" id="curr-track">
                 <img src="img/test-img.png" class="player__track__img">
                 <div class="player__track__description">
                     <p class="player__track__description__title">Трек</p>
@@ -268,7 +268,7 @@
                     <button class="button-icon">
                         <img class="icon icon-red" src="img/prev.svg">
                     </button>
-                    <button class="button-icon">
+                    <button class="button-icon" id="play">
                         <img class="icon icon-red" src="img/play.svg">
                     </button>
                     <button class="button-icon">
@@ -294,6 +294,7 @@
                 <span class="player__time">2:43</span>
             </div>
         </section>
+        <script type="module" src="js/player.js"></script>
     </body>
 
 </html>
