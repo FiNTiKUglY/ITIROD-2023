@@ -40,6 +40,7 @@
         height: 100%;
         background-color: #333030;
         position: fixed;
+        padding-bottom: 70px;
         z-index: 0;
         top: 0;
         left: 0;
@@ -83,6 +84,7 @@
         background-color: #333030;
         position: fixed;
         overflow: hidden;
+        padding-bottom: 70px;
         z-index: 1111;
         top: 0;
         left: 0;
@@ -133,6 +135,7 @@
         background-color: #333030;
         position: fixed;
         overflow: hidden;
+        padding-bottom: 70px;
         top: 0;
         left: 0;
         transition: 0.5s;
