@@ -3,15 +3,105 @@ let artists = [
         name: 'Saluki',
         albums: [
             {
-                name: 'Wild East',
+                name: 'WILD EAST',
                 artist: 'Saluki',
-                img: '1000 Rad',
+                img: 'WILD EAST',
                 songs: [
                     {
-                        name: '1000 Rad',
+                        name: '1000 RAD',
                         artist: 'Saluki',
-                        audio: '1000 Rad',
-                        img: '1000 Rad'
+                        audio: '1000 RAD',
+                        img: 'WILD EAST'
+                    },
+                    {
+                        name: 'BOLOTO',
+                        artist: 'Saluki',
+                        audio: 'BOLOTO',
+                        img: 'WILD EAST'
+                    },
+                    {
+                        name: 'GLUGICIR',
+                        artist: 'Saluki',
+                        audio: 'GLUGICIR',
+                        img: 'WILD EAST'
+                    },
+                    {
+                        name: 'HAHAHA',
+                        artist: 'Saluki',
+                        audio: 'HAHAHA',
+                        img: 'WILD EAST'
+                    },
+                    {
+                        name: 'SOLOIST',
+                        artist: 'Saluki',
+                        audio: 'SOLOIST',
+                        img: 'WILD EAST'
+                    },
+                    {
+                        name: 'НЕМНОГО КРУЧЕ',
+                        artist: 'Saluki',
+                        audio: 'НЕМНОГО КРУЧЕ',
+                        img: 'WILD EAST'
+                    },
+                    {
+                        name: 'ВЫЛЕЧИМ',
+                        artist: 'Saluki',
+                        audio: 'ВЫЛЕЧИМ',
+                        img: 'WILD EAST'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Папин Олимпос',
+        albums: [
+            {
+                name: 'телу тоже больно',
+                artist: 'Папин Олимпос',
+                img: 'Телу тоже больно',
+                songs: [
+                    {
+                        name: 'телу тоже больно',
+                        artist: 'Папин Олимпос',
+                        audio: 'Телу тоже больно',
+                        img: 'Телу тоже больно'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Vundabar',
+        albums: [
+            {
+                name: 'Gawk',
+                artist: 'Vundabar',
+                img: 'Alien',
+                songs: [
+                    {
+                        name: 'Alien Blues',
+                        artist: 'Vundabar',
+                        audio: 'Alien',
+                        img: 'Alien'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Vacations',
+        albums: [
+            {
+                name: 'Vibes',
+                artist: 'Vacations',
+                img: 'Young',
+                songs: [
+                    {
+                        name: 'Young',
+                        artist: 'Vacations',
+                        audio: 'Young',
+                        img: 'Young'
                     }
                 ]
             }
@@ -39,12 +129,14 @@ let songs = [
         img: 'Телу тоже больно'
     },
     {
-        name: '1000 Rad',
+        name: '1000 RAD',
         artist: 'Saluki',
-        audio: '1000 Rad',
-        img: '1000 Rad'
+        audio: '1000 RAD',
+        img: 'WILD EAST'
     }
 ]
+
+let possibleOrder = []
 
 let index = 0
 let audio = new Audio()
@@ -91,6 +183,9 @@ audio.addEventListener("ended", nextSong)
 document.getElementById("full-bar").addEventListener("click", setProgress)
 document.getElementById("full-volume").addEventListener("click", setVolume)
 document.getElementById("search").addEventListener('keyup', updateSearch)
+document.getElementById("menu-button").addEventListener('click', openMenu)
+document.getElementById("order-button").addEventListener('click', openOrder)
+
 
 function playSong() {
     if (audio.paused) {
@@ -103,6 +198,14 @@ function playSong() {
     }
 }
 
+function playAlbumSong(newIndex) {
+    songs = possibleOrder
+    fillOrder(songs)
+    index = newIndex - 1
+    loadSong[songs[index]]
+    nextSong()
+}
+
 function nextSong() {
     index += 1
     if (index == songs.length) {
@@ -110,7 +213,7 @@ function nextSong() {
     }
     audio.pause()
     loadSong(songs[index])
-    audio.play()
+    playSong()
 }
 
 function prevSong() {
@@ -120,7 +223,7 @@ function prevSong() {
     }
     audio.pause()
     loadSong(songs[index])
-    audio.play()
+    playSong()
 }
 
 function shuffleSong() {
@@ -170,46 +273,6 @@ function setVolume(volume) {
     document.getElementById("curr-volume").innerHTML = `${Math.trunc(audio.volume * 100)}%`
 }
 
-document.getElementById("order-tracks").addEventListener(`dragstart`, (evt) => {
-    evt.target.classList.add(`selected`);
-  })
-  
-  document.getElementById("order-tracks").addEventListener(`dragend`, (evt) => {
-    evt.target.classList.remove(`selected`);
-  });
-
-document.getElementById("order-tracks").addEventListener(`dragover`, (evt) => {
-    evt.preventDefault();
-  
-    const activeElement = document.getElementById("order-tracks").querySelector(`.selected`);
-    let currentElement = evt.target;
-    while (currentElement.tagName !== "LI") {
-        if (currentElement.tagName == "UL") {
-            return
-        }
-        currentElement = currentElement.parentNode;
-    }
-    const isMoveable = activeElement !== currentElement
-  
-    if (!isMoveable) {
-      return;
-    }
-  
-    const nextElement = (currentElement === activeElement.nextElementSibling) ?
-        currentElement.nextElementSibling : currentElement;
-  
-        document.getElementById("order-tracks").insertBefore(activeElement, nextElement);
-        let index1 = Array.prototype.indexOf.call(currentElement.parentNode.children, currentElement);
-        let index2 = Array.prototype.indexOf.call(activeElement.parentNode.children, activeElement);
-        if (index == index1) {
-            index = index2
-        }
-        else if (index == index2) {
-            index = index1
-        }
-        [songs[index1], songs[index2]] = [songs[index2], songs[index1]] 
-  });
-
 function updateSearch() {
     let searchValue = ""
     if (typeof this !== "undefined") {
@@ -218,6 +281,7 @@ function updateSearch() {
     let tracksNode = document.getElementById("search-tracks")
     let albumsNode = document.getElementById("search-albums")
     let artistsNode = document.getElementById("search-artists")
+    possibleOrder = []
     while (artistsNode.firstChild) {
         artistsNode.firstChild.remove()
     }
@@ -227,6 +291,7 @@ function updateSearch() {
     while (tracksNode.firstChild) {
         tracksNode.firstChild.remove()
     }
+    let count = 0
     artists.forEach(artist => {
         if (artist.name.toLowerCase().includes(searchValue)) {
             let list_item = document.createElement('li')
@@ -263,19 +328,145 @@ function updateSearch() {
                     <button class="button-icon">
                         <img src="img/heart.svg" class="icon">
                     </button>
-                    <button class="button-icon icon-red">
+                    <button class="button-icon icon-red" id="playAlbum-${count}">
                         <img src="img/play.svg" class="icon">
                     </button>
                 </div>`
                 tracksNode.appendChild(list_item)
+                document.getElementById(`playAlbum-${count}`).addEventListener("click", playAlbumSong.bind(this, count))
+                count += 1
+                possibleOrder.push(song)
                 }
             })
         })
     })
 }
 
+function openMenu() {
+    let menu = document.getElementById("menu")
+    if (menu.style.width == "100px") {
+        menu.removeAttribute("style")   
+    }
+    else {
+        menu.style.width = "100px"
+    }
+}
+  
+function openOrder() {
+    let menu = document.getElementById("order")
+    if (menu.style.width == "200px") {
+        menu.removeAttribute("style")
+    }
+    else {
+        menu.style.width = "200px"
+    }
+}
+
 
 fillOrder(songs)
 loadSong(songs[index])
 updateSearch()
+
+
+//--------------------drag&drop adaptive---------------------------------------
+
+document.getElementById("order-tracks").addEventListener(`dragstart`, (evt) => {
+    evt.target.classList.add(`selected`);
+})
+  
+document.getElementById("order-tracks").addEventListener(`dragend`, (evt) => {
+    evt.target.classList.remove(`selected`);
+})
+
+document.getElementById("order-tracks").addEventListener(`touchstart`, (evt) => {
+    let currentElement = evt.targetTouches[0].target
+    while (currentElement.tagName !== "LI") {
+        if (currentElement.tagName == "UL") {
+            return
+        }
+        currentElement = currentElement.parentNode;
+    }
+    currentElement.classList.add(`selected`);
+})
+  
+document.getElementById("order-tracks").addEventListener(`touchend`, (evt) => {
+    let currentElement = evt.changedTouches[0].target
+    while (currentElement.tagName !== "LI") {
+        if (currentElement.tagName == "UL") {
+            return
+        }
+        currentElement = currentElement.parentNode;
+    }
+    currentElement.classList.remove(`selected`);
+})
+
+document.getElementById("order-tracks").addEventListener(`dragover`, (evt) => {
+    evt.preventDefault();
+  
+    let activeElement = document.getElementById("order-tracks").querySelector(`.selected`)
+    if (activeElement == null) {
+        activeElement = document.getElementById("search-tracks").querySelector(`.selected`)
+    }
+    let currentElement = evt.target;
+    while (currentElement.tagName !== "LI") {
+        if (currentElement.tagName == "UL") {
+            return
+        }
+        currentElement = currentElement.parentNode;
+    }
+    const isMoveable = activeElement !== currentElement
+  
+    if (!isMoveable) {
+      return;
+    }
+  
+    const nextElement = (currentElement === activeElement.nextElementSibling) ?
+        currentElement.nextElementSibling : currentElement;
+  
+        document.getElementById("order-tracks").insertBefore(activeElement, nextElement);
+        let index1 = Array.prototype.indexOf.call(currentElement.parentNode.children, currentElement);
+        let index2 = Array.prototype.indexOf.call(activeElement.parentNode.children, activeElement);
+        if (index == index1) {
+            index = index2
+        }
+        else if (index == index2) {
+            index = index1
+        }
+        [songs[index1], songs[index2]] = [songs[index2], songs[index1]] 
+});
+
+document.getElementById("order-tracks").addEventListener(`touchmove`, (evt) => {
+    evt.preventDefault();
+  
+    let activeElement = document.getElementById("order-tracks").querySelector(`.selected`)
+    if (activeElement == null) {
+        activeElement = document.getElementById("search-tracks").querySelector(`.selected`)
+    }
+    let currentElement = document.elementFromPoint(evt.changedTouches[0].clientX, evt.changedTouches[0].clientY)
+    while (currentElement.tagName !== "LI") {
+        if (currentElement.tagName == "UL") {
+            return
+        }
+        currentElement = currentElement.parentNode;
+    }
+    const isMoveable = activeElement !== currentElement
+  
+    if (!isMoveable) {
+      return;
+    }
+  
+    const nextElement = (currentElement === activeElement.nextElementSibling) ?
+        currentElement.nextElementSibling : currentElement;
+  
+        document.getElementById("order-tracks").insertBefore(activeElement, nextElement);
+        let index1 = Array.prototype.indexOf.call(currentElement.parentNode.children, currentElement);
+        let index2 = Array.prototype.indexOf.call(activeElement.parentNode.children, activeElement);
+        if (index == index1) {
+            index = index2
+        }
+        else if (index == index2) {
+            index = index1
+        }
+        [songs[index1], songs[index2]] = [songs[index2], songs[index1]] 
+});
 

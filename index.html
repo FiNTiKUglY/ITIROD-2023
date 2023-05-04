@@ -14,7 +14,13 @@
     </head>
 
     <body>
-        <aside class="menu">
+        <button class="button-icon menu__button" id="menu-button">
+            <img src="img/menu.svg" class="menu__icon">
+        </button>
+        <button class="button-icon order__button" id="order-button">
+            <img src="img/order-menu.svg" class="menu__icon">
+        </button>
+        <aside class="menu" id="menu">
             <nav>
                 <div class="menu__item menu__item-size menu__logo">
                     <img src="img/sound-mute.svg" class="menu__icon">
@@ -61,7 +67,7 @@
                 </div>
             </nav>
         </aside>
-        <section class="sideorder">
+        <section class="sideorder" id="order">
             <h1 class="white-title white-title-size">Очередь</h1>
             <hr>
             <ul class="track__container-mini" id="order-tracks">
@@ -146,6 +152,7 @@
             </div>
         </section>
         <script type="module" src="js/player.js"></script>
+        <script type="module" src="js/firebase.js"></script>
     </body>
 
 </html>

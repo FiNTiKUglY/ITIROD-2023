@@ -26,6 +26,26 @@
     h1.white-title-size {
         font-size: 1.7rem;
     }
+
+    .menu__button {
+        display: none;
+        left: 0;
+        top: 0;
+        position: fixed;
+        z-index: 1111;
+    }
+
+    .menu {
+        width: 15%;
+        height: 100%;
+        background-color: #333030;
+        position: fixed;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        transition: 0.5s;
+        z-index: 1110;
+    }
 }
 
 @media screen and (max-width:1000px) {
@@ -55,6 +75,19 @@
 
     .white-title-size {
         font-size: 1.5rem;
+    }
+
+    .menu {
+        width: 15%;
+        height: 100%;
+        background-color: #333030;
+        position: fixed;
+        overflow: hidden;
+        z-index: 1111;
+        top: 0;
+        left: 0;
+        transition: 0.5s;
+        z-index: 1112;
     }
 }
 
@@ -86,16 +119,25 @@
     .white-title-size {
         font-size: 0.7rem;
     }
-}
 
-.menu {
-    width: 15%;
-    height: 90%;
-    background-color: #333030;
-    position: fixed;
-    z-index: 0;
-    top: 0;
-    left: 0;
+    .menu__button {
+        left: 0;
+        top: 0;
+        position: fixed;
+        z-index: 1112;
+    }
+
+    .menu {
+        width: 0px;
+        height: 100%;
+        background-color: #333030;
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        transition: 0.5s;
+        z-index: 1110;
+    }
 }
 
 .menu__item {
