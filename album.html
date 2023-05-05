@@ -13,7 +13,13 @@
     </head>
 
     <body>
-        <aside class="menu">
+        <button class="button-icon menu__button" id="menu-button">
+            <img src="img/menu.svg" class="menu__icon">
+        </button>
+        <button class="button-icon order__button" id="order-button">
+            <img src="img/order-menu.svg" class="menu__icon">
+        </button>
+        <aside class="menu" id="menu">
             <nav>
                 <div class="menu__item menu__item-size menu__logo">
                     <img src="img/sound-mute.svg" class="menu__icon">
@@ -39,53 +45,23 @@
                     </div>
                 </a>
                 <hr>
-                <a class="menu__link" href="favourite.html">
-                    <div class="menu__item menu__item-size menu__main">
-                        <button class="button-icon">
-                            <img src="img/heart.svg" class="menu__icon">
-                        </button>
-                        <p class="link-container">Любимые</p>
-                    </div>
-                </a>
-                <hr>
                 <div class="menu__albums">
                     <h1 class="white-title white-title-size">Альбомы</h1>
                     <hr>
                     <ul class="link-container">
                         <li><a class="menu__sublink" href="album.html">Название альбома</a></li>
-                        <li><a class="menu__sublink" href="album.html">Название альбома</a></li>
-                        <li><a class="menu__sublink" href="album.html">Название альбома</a></li>
-                        <li><a class="menu__sublink" href="album.html">Название альбома</a></li>
                     </ul>
                 </div>
             </nav>
         </aside>
-        <section class="sideorder">
+        <section class="sideorder" id="order">
             <h1 class="white-title white-title-size">Очередь</h1>
             <hr>
-            <ul class="track__container-mini">
-                <li>
-                    <div class="track__card-mini">
-                        <img src="img/test-img.png" class="track__img-mini">
-                        <div class="track__description">
-                            <p class="track__title">Трек</p>
-                            <p class="track__subtitle">Исполнитель</p>
-                        </div> 
-                    </div>
-                </li>
-                <li>
-                    <div class="track__card-mini">
-                        <img src="img/test-img.png" class="track__img-mini">
-                        <div class="track__description">
-                            <p class="track__title">Трек</p>
-                            <p class="track__subtitle">Исполнитель</p>
-                        </div> 
-                    </div>
-                </li>
+            <ul class="track__container-mini" id="order-tracks">
             </ul>
         </section>
         <main class="page-content">
-            <div class="album-head album-head-grid">
+            <header class="album-head album-head-grid" id="album-head">
                 <div class="head-img-container">
                     <img src="img/test-img.png" class="head-img">
                     <button class="button-icon button-icon-head">
@@ -97,134 +73,49 @@
                     <p class="head-subtitle">Исполнитель, 2023</p>
                     <p class="head-subsubtitle">5 треков, 15 мин 15 сек</p>
                 </div>
-            </div>
+            </header>
             <section class="album-tracks">
-                <ul class="track__container">
-                    <li>
-                        <div class="track__card">
-                            <img src="img/test-img.png" class="track__img">
-                            <div class="track__description">
-                                <p class="track__title">Трек</p>
-                                <p class="track__subtitle">Исполнитель</p>
-                            </div>
-                            <p class="card-subtitle">0:42</p>
-                            <button class="button-icon">
-                                <img src="img/heart.svg" class="icon">
-                            </button>
-                            <button class="button-icon icon-red">
-                                <img src="img/play.svg" class="icon">
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="track__card">
-                            <img src="img/test-img.png" class="track__img">
-                            <div class="track__description">
-                                <p class="track__title">Трек</p>
-                                <p class="track__subtitle">Исполнитель</p>
-                            </div>
-                            <p class="card-subtitle">0:42</p>
-                            <button class="button-icon">
-                                <img src="img/heart.svg" class="icon">
-                            </button>
-                            <button class="button-icon icon-red">
-                                <img src="img/play.svg" class="icon">
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="track__card">
-                            <img src="img/test-img.png" class="track__img">
-                            <div class="track__description">
-                                <p class="track__title">Трек</p>
-                                <p class="track__subtitle">Исполнитель</p>
-                            </div>
-                            <p class="card-subtitle">0:42</p>
-                            <button class="button-icon">
-                                <img src="img/heart.svg" class="icon">
-                            </button>
-                            <button class="button-icon icon-red">
-                                <img src="img/play.svg" class="icon">
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="track__card">
-                            <img src="img/test-img.png" class="track__img">
-                            <div class="track__description">
-                                <p class="track__title">Трек</p>
-                                <p class="track__subtitle">Исполнитель</p>
-                            </div>
-                            <p class="card-subtitle">0:42</p>
-                            <button class="button-icon">
-                                <img src="img/heart.svg" class="icon">
-                            </button>
-                            <button class="button-icon icon-red">
-                                <img src="img/play.svg" class="icon">
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="track__card">
-                            <img src="img/test-img.png" class="track__img">
-                            <div class="track__description">
-                                <p class="track__title">Трек</p>
-                                <p class="track__subtitle">Исполнитель</p>
-                            </div>
-                            <p class="card-subtitle">0:42</p>
-                            <button class="button-icon">
-                                <img src="img/heart.svg" class="icon">
-                            </button>
-                            <button class="button-icon icon-red">
-                                <img src="img/play.svg" class="icon">
-                            </button>
-                        </div>
-                    </li>
+                <ul class="track__container" id="tracks">
                 </ul>
             </section>
         </main>
         <section class="player">
-            <div class="player__track">
-                <img src="img/test-img.png" class="player__track__img">
-                <div class="player__track__description">
-                    <p class="player__track__description__title">Трек</p>
-                    <p class="player__track__description__subtitle">Исполнитель</p>
-                </div>
+            <div class="player__track" id="curr-track">
             </div>
             <div class="player__controls">
                 <div class="player__buttons">
-                    <button class="button-icon">
+                    <button class="button-icon" id="shuffle">
                         <img class="icon-small icon-red" src="img/shuffle.svg">
                     </button>
-                    <button class="button-icon">
+                    <button class="button-icon" id="prev">
                         <img class="icon icon-red" src="img/prev.svg">
                     </button>
-                    <button class="button-icon">
+                    <button class="button-icon" id="play">
                         <img class="icon icon-red" src="img/play.svg">
                     </button>
-                    <button class="button-icon">
+                    <button class="button-icon" id="next">
                         <img class="icon icon-red" src="img/next.svg">
                     </button>
-                    <button class="button-icon">
+                    <button class="button-icon" id="repeat">
                         <img class="icon-small icon-red" src="img/repeat.svg">
                     </button>
                 </div>
                 <div class="player__bar">
-                    <span class="player__time-current">0:00</span>
-                    <div class="player__bar-full">
-                        <div class="player__bar-current"></div>
+                    <span class="player__time-current" id="curr-time">0:00</span>
+                    <div class="player__bar-full" id="full-bar">
+                        <div class="player__bar-current" id="progress"></div>
                     </div>
-                    <span class="player__time">2:43</span>
+                    <span class="player__time" id="full-time">2:43</span>
                 </div>
             </div>
             <div class="player__volume">
-                <span class="player__time-current">0:00</span>
-                <div class="player__bar-full">
-                    <div class="player__bar-current"></div>
+                <div class="player__bar-full" id="full-volume">
+                    <div class="player__bar-current" id="volume" style="width:100%"></div>
                 </div>
-                <span class="player__time">2:43</span>
+                <span class="player__time" id="curr-volume">100%</span>
             </div>
         </section>
+        <script type="module" src="js/album.js"></script>
     </body>
 
 </html>

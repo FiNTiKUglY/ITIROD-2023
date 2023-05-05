@@ -87,12 +87,12 @@
         <main class="page-content">
             <section class="auth">
                 <h1 class="auth__title">Регистрация</h1>
-                <form method="post">
+                <form>
                     <div class="auth__form">
-                        <input class="auth__input" type="text" placeholder="Логин">
-                        <input class="auth__input" type="text" placeholder="Пароль">
-                        <input class="auth__input" type="text" placeholder="Подтвердите пароль">
-                        <button class="auth__button">Регистрация</button>
+                        <input class="auth__input" type="text" placeholder="Логин" id="user_email">
+                        <input class="auth__input" type="password" placeholder="Пароль" id="user_password">
+                        <input class="auth__input" type="password" placeholder="Подтвердите пароль" id="confirm_password">
+                        <button class="auth__button" id="register-button">Регистрация</button>
                     </div>
                 </form>
             </section>
@@ -139,6 +139,7 @@
                 <span class="player__time">2:43</span>
             </div>
         </section>
+        <script type="module" src="js/register.js"></script>
     </body>
 
 </html>

@@ -1,5 +1,4 @@
 .track__title {
-    width: 100%;
     height: auto;
     text-align: center;
     justify-content: center;
@@ -11,7 +10,6 @@
 }
 
 .track__title-mini {
-    width: 100%;
     height: auto;
     text-align: center;
     justify-content: center;

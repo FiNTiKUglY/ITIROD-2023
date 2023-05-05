@@ -87,11 +87,11 @@
         <main class="page-content">
             <section class="auth">
                 <h1 class="auth__title">Вход</h1>
-                <form method="post">
+                <form>
                     <div class="auth__form">
-                        <input class="auth__input" type="text" placeholder="Логин">
-                        <input class="auth__input" type="text" placeholder="Пароль">
-                        <button class="auth__button">Войти</button>
+                        <input class="auth__input" type="text" placeholder="Логин" id="user_email">
+                        <input class="auth__input" type="password" placeholder="Пароль" id="user_password">
+                        <button type="submit" class="auth__button" id="login-button">Войти</button>
                     </div>
                 </form>
             </section>
@@ -139,5 +139,6 @@
             </div>
         </section>
     </body>
+    <script type="module" src="js/login.js"></script>
 
 </html>

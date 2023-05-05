@@ -13,7 +13,7 @@
 }
 
 .player__bar-current {
-    width: 40%;
+    width: 0px;
     height: 4px;
     background: #E55B5B;
 }

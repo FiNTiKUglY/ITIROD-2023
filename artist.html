@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aboba</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/menu/nav-menu.css">
+        <link rel="stylesheet" href="css/order/order.css">
+        <link rel="stylesheet" href="css/page-content/page-content.css">
+        <link rel="stylesheet" href="css/player/player.css">
+        <link rel="stylesheet" href="css/track/track.css">
+        <link rel="stylesheet" href="css/icon/icon.css">
+    </head>
+
+    <body>
+        <button class="button-icon menu__button" id="menu-button">
+            <img src="img/menu.svg" class="menu__icon">
+        </button>
+        <button class="button-icon order__button" id="order-button">
+            <img src="img/order-menu.svg" class="menu__icon">
+        </button>
+        <aside class="menu" id="menu">
+            <nav>
+                <div class="menu__item menu__item-size menu__logo">
+                    <img src="img/sound-mute.svg" class="menu__icon">
+                    <h1 class="white-title white-title-size">Лого</h1>
+                </div>
+                <hr>
+                <div class="menu__item menu__item-size menu__profile">
+                    <a href="login.html">
+                        <img src="img/profile.svg" class="menu__icon">
+                    </a>
+                    <div class="link-container">
+                        <a href="login.html" class="menu__link">Войти</a>
+                        <a href="signup.html" class="menu__sublink">Регистрация</a>
+                    </div>
+                </div>
+                <hr>
+                <a class="menu__link" href="index.html">
+                    <div class="menu__item menu__item-size menu__main">
+                        <button class="button-icon">
+                            <img src="img/home.svg" class="menu__icon">
+                        </button>
+                        <p class="link-container">Главная</p>
+                    </div>
+                </a>
+                <hr>
+                <div class="menu__albums">
+                    <h1 class="white-title white-title-size">Альбомы</h1>
+                    <hr>
+                    <ul class="link-container">
+                        <li><a class="menu__sublink" href="album.html">Название альбома</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        <section class="sideorder" id="order">
+            <h1 class="white-title white-title-size">Очередь</h1>
+            <hr>
+            <ul class="track__container-mini" id="order-tracks">
+            </ul>
+        </section>
+        <main class="page-content">
+            <header class="album-head album-head-grid" id="album-head">
+                <div class="head-img-container">
+                    <img src="img/test-img.png" class="head-img">
+                    <button class="button-icon button-icon-head">
+                        <img src="img/heart.svg" class="icon icon-white">
+                    </button>
+                </div>
+                <div class="head-description">
+                    <p class="head-title">Исполнитель</p>
+                    <p class="head-subtitle">5 треков</p>
+                </div>
+            </header>
+            <section class="album-tracks">
+                <ul class="track__container" id="tracks">
+                </ul>
+            </section>
+        </main>
+        <section class="player">
+            <div class="player__track" id="curr-track">
+            </div>
+            <div class="player__controls">
+                <div class="player__buttons">
+                    <button class="button-icon" id="shuffle">
+                        <img class="icon-small icon-red" src="img/shuffle.svg">
+                    </button>
+                    <button class="button-icon" id="prev">
+                        <img class="icon icon-red" src="img/prev.svg">
+                    </button>
+                    <button class="button-icon" id="play">
+                        <img class="icon icon-red" src="img/play.svg">
+                    </button>
+                    <button class="button-icon" id="next">
+                        <img class="icon icon-red" src="img/next.svg">
+                    </button>
+                    <button class="button-icon" id="repeat">
+                        <img class="icon-small icon-red" src="img/repeat.svg">
+                    </button>
+                </div>
+                <div class="player__bar">
+                    <span class="player__time-current" id="curr-time">0:00</span>
+                    <div class="player__bar-full" id="full-bar">
+                        <div class="player__bar-current" id="progress"></div>
+                    </div>
+                    <span class="player__time" id="full-time">2:43</span>
+                </div>
+            </div>
+            <div class="player__volume">
+                <div class="player__bar-full" id="full-volume">
+                    <div class="player__bar-current" id="volume" style="width:100%"></div>
+                </div>
+                <span class="player__time" id="curr-volume">100%</span>
+            </div>
+        </section>
+        <script type="module" src="js/artist.js"></script>
+    </body>
+
+</html>

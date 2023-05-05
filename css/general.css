@@ -57,6 +57,10 @@ ul {
     height: 40px;
 }
 
+.selected {
+    opacity: 0.6;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
 }
