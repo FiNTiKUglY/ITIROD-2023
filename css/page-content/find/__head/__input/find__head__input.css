@@ -1,0 +1,14 @@
+.find__head__input {
+    border-radius: 20px;
+    border: 1px solid #E55B5B;
+    color: #3a3a3a;
+    width: 60%;
+    height: 60%;
+    padding-left: 10px;
+}
+   
+.find__head__input:focus {
+    outline: none;
+    border: 2px solid #000000;
+    color: #000000;
+}

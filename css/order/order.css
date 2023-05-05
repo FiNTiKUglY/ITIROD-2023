@@ -1,0 +1,18 @@
+@media screen and (min-width: 1000px) {
+    .sideorder {
+        width: 15%;
+        height: 90%;
+        background-color: #333030;
+        display: block;
+        position: fixed;
+        z-index: 0;
+        top: 0;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .sideorder {
+        display: none;
+    }
+}
