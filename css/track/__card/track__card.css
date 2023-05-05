@@ -1,5 +1,6 @@
 .track__card {
     width: calc(100%);
+    max-width: 800px;
     height: 100%;
     padding-left: 1.25rem;
     padding-right: 0.625rem;

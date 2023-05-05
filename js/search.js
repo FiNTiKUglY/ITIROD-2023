@@ -1,4 +1,3 @@
-
 import {playAlbumSong} from "./player.js"
 import  "./menu.js"
 import  "./order.js"
@@ -6,6 +5,7 @@ import  "./order.js"
 let artists = [
     {
         name: 'Saluki',
+        img: "Saluki",
         albums: [
             {
                 name: 'WILD EAST',
@@ -55,11 +55,37 @@ let artists = [
                         img: 'WILD EAST'
                     }
                 ]
+            },
+            {
+                name: 'Улицы Дома',
+                artist: 'Saluki',
+                img: 'Улицы Дома',
+                songs: [
+                    {
+                        name: 'Улицы Дома',
+                        artist: 'Saluki',
+                        audio: 'Улицы дома',
+                        img: 'Улицы Дома'
+                    },
+                    {
+                        name: 'Реприза',
+                        artist: 'Saluki',
+                        audio: 'Реприза',
+                        img: 'Улицы Дома'
+                    },
+                    {
+                        name: 'Голова Болит',
+                        artist: 'Saluki',
+                        audio: 'Голова болит',
+                        img: 'Улицы Дома'
+                    }
+                ]
             }
         ]
     },
     {
         name: 'Папин Олимпос',
+        img: 'Папин Олимпос',
         albums: [
             {
                 name: 'телу тоже больно',
@@ -78,6 +104,7 @@ let artists = [
     },
     {
         name: 'Vundabar',
+        img: 'Vundabar',
         albums: [
             {
                 name: 'Gawk',
@@ -96,6 +123,7 @@ let artists = [
     },
     {
         name: 'Vacations',
+        img: 'Vacations',
         albums: [
             {
                 name: 'Vibes',
@@ -138,7 +166,7 @@ function updateSearch() {
     artists.forEach(artist => {
         if (artist.name.toLowerCase().includes(searchValue)) {
             let list_item = document.createElement('li')
-            list_item.innerHTML = `<a href="album.html">
+            list_item.innerHTML = `<a href="artist.html#${artist.name}">
             <div class="card">
                 <img src="img/${artist.img}.png" class="card__img">
                 <p class="card__title">${artist.name}</p> 

@@ -6,6 +6,7 @@ import "./order.js"
 let artists = [
     {
         name: 'Saluki',
+        img: "Saluki",
         albums: [
             {
                 name: 'WILD EAST',
@@ -55,11 +56,37 @@ let artists = [
                         img: 'WILD EAST'
                     }
                 ]
+            },
+            {
+                name: 'Улицы Дома',
+                artist: 'Saluki',
+                img: 'Улицы Дома',
+                songs: [
+                    {
+                        name: 'Улицы Дома',
+                        artist: 'Saluki',
+                        audio: 'Улицы дома',
+                        img: 'Улицы Дома'
+                    },
+                    {
+                        name: 'Реприза',
+                        artist: 'Saluki',
+                        audio: 'Реприза',
+                        img: 'Улицы Дома'
+                    },
+                    {
+                        name: 'Голова Болит',
+                        artist: 'Saluki',
+                        audio: 'Голова болит',
+                        img: 'Улицы Дома'
+                    }
+                ]
             }
         ]
     },
     {
         name: 'Папин Олимпос',
+        img: 'Папин Олимпос',
         albums: [
             {
                 name: 'телу тоже больно',
@@ -78,6 +105,7 @@ let artists = [
     },
     {
         name: 'Vundabar',
+        img: 'Vundabar',
         albums: [
             {
                 name: 'Gawk',
@@ -96,6 +124,7 @@ let artists = [
     },
     {
         name: 'Vacations',
+        img: 'Vacations',
         albums: [
             {
                 name: 'Vibes',
