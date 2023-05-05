@@ -115,8 +115,7 @@ function loadSong(song) {
 
 function playAlbumSong(newIndex, possibleOrder) {
     fillOrder(possibleOrder)
-    console.log(possibleOrder)
-    songs = possibleOrder
+    songs = possibleOrder.slice()
     index = newIndex
     loadSong(songs[index])
     playSong()
