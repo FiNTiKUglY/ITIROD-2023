@@ -1,6 +1,7 @@
 import {fillOrder} from "./order.js"
 
 let songs = []
+let beforeShuffle = []
 let index = 0
 let audio = new Audio()
 audio.volume = 0.05
@@ -19,7 +20,9 @@ function playSong() {
 }
 
 function nextSong() {
-    index += 1
+    if (!repeat) {
+        index += 1
+    }
     if (index == songs.length) {
         index = 0
     }
@@ -41,10 +44,25 @@ function prevSong() {
 function shuffleSong() {
     if (!shuffle) {
         shuffle = true
+        beforeShuffle = songs.slice()
+        for (let i = songs.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            if (j == index) {
+                index = i
+            }
+            else if (i == index) {
+                index = j
+            }
+            [songs[i], songs[j]] = [songs[j], songs[i]]
+        }
+        fillOrder(songs)
         document.getElementById("shuffle").firstElementChild.classList.add("icon-white")
     }
     else {
         shuffle = false
+        index = beforeShuffle.indexOf(songs[index])
+        songs = beforeShuffle
+        fillOrder(songs)
         document.getElementById("shuffle").firstElementChild.classList.remove("icon-white")
     }
 }
