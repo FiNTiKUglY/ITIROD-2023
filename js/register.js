@@ -1,4 +1,6 @@
 import {register} from "./firebase.js"
+import "./menu.js"
+import "./order.js"
 
 let register_button = document.getElementById("register-button")
 

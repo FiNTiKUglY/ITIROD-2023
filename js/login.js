@@ -1,4 +1,6 @@
 import {login} from "./firebase.js"
+import "./menu.js"
+import "./order.js"
 
 let login_button = document.getElementById("login-button")
 

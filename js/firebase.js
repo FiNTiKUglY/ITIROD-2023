@@ -45,4 +45,17 @@ function logout() {
     window.location.href = 'index.html';
 }
 
+async function getUsers() {
+    const object = await (await fetch(`https://musicplayer-f71a2-default-rtdb.europe-west1.firebasedatabase.app/users.json`)).json()
+    return object
+}
+
+async function getArtists() {
+    const object = await (await fetch(`https://musicplayer-f71a2-default-rtdb.europe-west1.firebasedatabase.app/artists.json`)).json()
+    return object
+}
+
+export const users = await getUsers()
+export const artists = await getArtists()
+
 export {login, register, logout}

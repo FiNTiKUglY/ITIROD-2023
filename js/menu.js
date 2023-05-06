@@ -1,15 +1,4 @@
-import {logout} from "./firebase.js"
-
-let users = [
-    {
-        id: "hVrce7xMXPOZ34IckGuTD2kUdEu2",
-        name: "fintik"
-    },
-    {
-        id: "EckdMyxWwkbof4kWd80ISI7UU6k2",
-        name: "hihi"
-    }
-]
+import {logout, users} from "./firebase.js"
 
 function openMenu() {
     let menu = document.getElementById("menu")
