@@ -14,6 +14,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 export let user = auth.userCredential
+console.log()
 
 function login(email, password) {
     signInWithEmailAndPassword(auth, email, password)
@@ -45,9 +46,14 @@ function logout() {
     window.location.href = 'index.html';
 }
 
-async function getUsers() {
-    const object = await (await fetch(`https://musicplayer-f71a2-default-rtdb.europe-west1.firebasedatabase.app/users.json`)).json()
-    return object
+async function getUser() {
+    const params = document.cookie.split(';')
+    const user_id = params[0].split('=')[1]
+    const object = await (await fetch(`https://musicplayer-f71a2-default-rtdb.europe-west1.firebasedatabase.app/users.json?orderBy="id"&equalTo="${user_id}"`)).json()
+    for (const key of Object.keys(object)) {
+        return object[key]
+    }
+    return null
 }
 
 async function getArtists() {
@@ -55,7 +61,7 @@ async function getArtists() {
     return object
 }
 
-export const users = await getUsers()
+export const currentUser = await getUser()
 export const artists = await getArtists()
 
 export {login, register, logout}

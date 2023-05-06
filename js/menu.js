@@ -1,4 +1,4 @@
-import {logout, users} from "./firebase.js"
+import {logout, currentUser} from "./firebase.js"
 
 function openMenu() {
     let menu = document.getElementById("menu")
@@ -13,16 +13,6 @@ function openMenu() {
 function loadMenu() {
     let menu = document.getElementById("menu")
     if (document.cookie.includes('user=')) {
-        const params = document.cookie.split(';')
-        const user_id = params[0].split('=')[1]
-        console.log(params)
-        let currentUser = ""
-        users.forEach(user => {
-            console.log(user_id, user.id)
-            if (user.id == user_id) {
-                currentUser = user.name
-            }
-        })
         menu.innerHTML = `<nav>
         <div class="menu__item menu__item-size menu__logo">
             <img src="img/sound-mute.svg" class="menu__icon">
@@ -34,7 +24,7 @@ function loadMenu() {
                 <img src="img/profile.svg" class="menu__icon">
             </a>
             <div class="link-container">
-                <a class="menu__link">${currentUser}</a>
+                <a class="menu__link">${currentUser.name}</a>
                 <a class="menu__sublink" id="logout">Выйти</a>
             </div>
         </div>
@@ -60,11 +50,19 @@ function loadMenu() {
         <div class="menu__albums">
             <h1 class="white-title white-title-size">Альбомы</h1>
             <hr>
-            <ul class="link-container">
+            <ul class="link-container" id="fav-albums">
             </ul>
         </div>
     </nav>`
-    document.getElementById("logout").addEventListener("click", logout)
+        document.getElementById("logout").addEventListener("click", logout)
+
+        let fav_albums = document.getElementById("fav-albums")
+        currentUser.albums.forEach(album => {
+            let list_item = document.createElement("li")
+            list_item.innerHTML = `<a class="menu__sublink" href="album.html#${album}">${album}</a>`
+            fav_albums.appendChild(list_item)
+
+        })     
     } 
     else {
         menu.innerHTML = `<nav>
@@ -92,12 +90,6 @@ function loadMenu() {
             </div>
         </a>
         <hr>
-        <div class="menu__albums">
-            <h1 class="white-title white-title-size">Альбомы</h1>
-            <hr>
-            <ul class="link-container">
-            </ul>
-        </div>
     </nav>`
     }
 }

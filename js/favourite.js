@@ -1,23 +1,19 @@
-
 import {playAlbumSong} from "./player.js"
 import "./menu.js"
 import "./order.js"
-import {artists} from "./firebase.js"
+import {artists, currentUser} from "./firebase.js"
 
-let albumTracks = []
+let favTracks = []
 
 function getTracks() {
-    let albumName = decodeURI(window.location.hash.split("#")[1].replace("%20", " "))
-    console.log(albumName)
     let tracksNode = document.getElementById("tracks")
     let headNode = document.getElementById("album-head")
+    let count = 0
 
     artists.forEach(artist => {
         artist.albums.forEach(album => {
-            if (album.name == albumName) {
-                let count = 0
-                albumTracks = album.songs
-                album.songs.forEach(song => {
+            album.songs.forEach(song => {
+                if (currentUser.tracks.includes(song.name)) {
                     let list_item = document.createElement('li')
                     list_item.innerHTML = `<div class="track__card">
                     <img src="img/${song.img}.png" class="track__img">
@@ -33,28 +29,22 @@ function getTracks() {
                         <img src="img/play.svg" class="icon">
                     </button>
                 </div>`
+                    favTracks.push(song)
                     tracksNode.appendChild(list_item)
-                    document.getElementById(`playAlbum-${count}`).addEventListener("click", playAlbumSong.bind(this, count, albumTracks))
+                    document.getElementById(`playAlbum-${count}`).addEventListener("click", playAlbumSong.bind(this, count, favTracks))
                     count += 1
-                })
-                headNode.innerHTML = `<div class="head-img-container">
-                <img src="img/${album.img}.png" class="head-img">
-                <button class="button-icon button-icon-head">
-                    <img src="img/heart.svg" class="icon icon-white">
-                </button>
-            </div>
-            <div class="head-description">
-                <p class="head-title">${album.name}</p>
-                <p class="head-subtitle">${album.artist}</p>
-                <p class="head-subsubtitle">${count} треков</p>
-            </div>`
-            }   
+                }        
+            })   
         })
     })
-}
-
-window.onhashchange = function() {
-    window.location.reload()
+    headNode.innerHTML = `<div class="head-img-container">
+                <img src="img/favourite.png" class="head-img">
+            </div>
+            <div class="head-description">
+                <p class="head-title">Любимые</p>
+                <p class="head-subtitle">${currentUser.name}</p>
+                <p class="head-subsubtitle">${count} треков</p>
+            </div>`
 }
 
 getTracks()
