@@ -49,7 +49,12 @@ function logout() {
 
 async function getUser() {
     const params = document.cookie.split(';')
-    const user_id = params[0].split('=')[1]
+    let user_id = ""
+    params.forEach(param => {
+        if (param.includes("user=")) {
+            user_id = param.split('=')[1]
+        }
+    })
     const object = await (await fetch(`https://musicplayer-f71a2-default-rtdb.europe-west1.firebasedatabase.app/users/${user_id}.json`)).json()
     return object
 }
