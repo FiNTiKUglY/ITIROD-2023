@@ -3,7 +3,7 @@ import {playAlbumSong} from "./player.js"
 import "./menu.js"
 import "./order.js"
 import {artists, currentUser} from "./firebase.js"
-import {likeSong} from "./like.js"
+import {likeSong, likeAlbum} from "./like.js"
 
 let albumTracks = []
 
@@ -43,17 +43,22 @@ function getTracks() {
                     document.getElementById(`heart-${count}`).addEventListener("click", likeSong.bind(this, count, song.name))
                     count += 1
                 })
+                let heart = "heart"
+                if (currentUser && currentUser.albums && currentUser.albums.includes(album.name)) {
+                    heart = "heart-fill"
+                }
                 headNode.innerHTML = `<div class="head-img-container">
-                <img src="img/${album.img}.png" class="head-img">
-                <button class="button-icon button-icon-head">
-                    <img src="img/heart.svg" class="icon icon-white">
-                </button>
-            </div>
-            <div class="head-description">
-                <p class="head-title">${album.name}</p>
-                <p class="head-subtitle">${album.artist}</p>
-                <p class="head-subsubtitle">${count} треков</p>
-            </div>`
+                    <img src="img/${album.img}.png" class="head-img">
+                    <button class="button-icon button-icon-head" id="heart-album">
+                        <img src="img/${heart}.svg" class="icon icon-white">
+                    </button>
+                </div>
+                <div class="head-description">
+                    <p class="head-title">${album.name}</p>
+                    <p class="head-subtitle">${album.artist}</p>
+                    <p class="head-subsubtitle">${count} треков</p>
+                </div>`
+                document.getElementById(`heart-album`).addEventListener("click", likeAlbum.bind(this, album.name))
             }   
         })
     })

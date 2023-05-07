@@ -18,6 +18,7 @@ function getTracks() {
             artist.albums.forEach(album => {
                 album.songs.forEach(song => {
                     let heart = "heart"
+                    console.log(currentUser)
                     if (currentUser && currentUser.tracks && currentUser.tracks.includes(song.name)) {
                         heart = "heart-fill"
                     }
@@ -45,9 +46,6 @@ function getTracks() {
             })
             headNode.innerHTML = `<div class="head-img-container">
                     <img src="img/${artist.img}.png" class="head-img">
-                    <button class="button-icon button-icon-head">
-                        <img src="img/heart.svg" class="icon icon-white">
-                    </button>
                 </div>
                 <div class="head-description">
                     <p class="head-title">${artist.name}</p>
