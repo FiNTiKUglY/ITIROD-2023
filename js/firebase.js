@@ -49,11 +49,8 @@ function logout() {
 async function getUser() {
     const params = document.cookie.split(';')
     const user_id = params[0].split('=')[1]
-    const object = await (await fetch(`https://musicplayer-f71a2-default-rtdb.europe-west1.firebasedatabase.app/users.json?orderBy="id"&equalTo="${user_id}"`)).json()
-    for (const key of Object.keys(object)) {
-        return object[key]
-    }
-    return null
+    const object = await (await fetch(`https://musicplayer-f71a2-default-rtdb.europe-west1.firebasedatabase.app/users/${user_id}.json`)).json()
+    return object
 }
 
 async function getArtists() {
@@ -64,4 +61,24 @@ async function getArtists() {
 export const currentUser = await getUser()
 export const artists = await getArtists()
 
-export {login, register, logout}
+async function addTrackToFavorite(track) {
+    let count = 0
+    let updateUser = await getUser()
+    if (updateUser.tracks) {
+        count = updateUser.tracks.length
+    }
+    return await fetch(`https://musicplayer-f71a2-default-rtdb.europe-west1.firebasedatabase.app/users/${currentUser.id}/tracks/${count}.json`, {
+        method: 'put',
+        body: JSON.stringify(track)
+    });
+}
+
+async function removeTrackFromFavorite(track) {
+    let id = currentUser.tracks.indexOf(track)
+    console.log(id)
+    return await fetch(`https://musicplayer-f71a2-default-rtdb.europe-west1.firebasedatabase.app/users/${currentUser.id}/tracks/${id}.json`, {
+        method: 'delete'
+    });
+}
+
+export {login, register, logout, addTrackToFavorite, removeTrackFromFavorite}

@@ -1,7 +1,8 @@
 import {playAlbumSong} from "./player.js"
 import  "./menu.js"
 import  "./order.js"
-import {artists} from "./firebase.js"
+import {artists, currentUser} from "./firebase.js"
+import {likeSong} from "./like.js"
 
 let possibleOrder = []
 
@@ -48,7 +49,11 @@ function updateSearch() {
             albumsNode.appendChild(list_item)
             }
             album.songs.forEach(song => {
-                if (song.name.toLowerCase().includes(searchValue)) {
+                let heart = "heart"
+                if (song.name.toLowerCase().includes(searchValue.toLowerCase())) {
+                    if (currentUser.tracks && currentUser.tracks.includes(song.name)) {
+                        heart = "heart-fill"
+                    }
                     let list_item = document.createElement('li')
                     list_item.innerHTML = `<div class="track__card">
                     <img src="img/${song.img}.png" class="track__img">
@@ -57,8 +62,8 @@ function updateSearch() {
                         <p class="track__subtitle">${artist.name}</p>
                     </div>
                     <p class="card-subtitle">0:42</p>
-                    <button class="button-icon">
-                        <img src="img/heart.svg" class="icon">
+                    <button class="button-icon" id="heart-${count}">
+                        <img src="img/${heart}.svg" class="icon">
                     </button>
                     <button class="button-icon icon-red" id="playAlbum-${count}">
                         <img src="img/play.svg" class="icon">
@@ -66,6 +71,7 @@ function updateSearch() {
                 </div>`
                 tracksNode.appendChild(list_item)
                 document.getElementById(`playAlbum-${count}`).addEventListener("click", playAlbumSong.bind(this, count, possibleOrder))
+                document.getElementById(`heart-${count}`).addEventListener("click", likeSong.bind(this, count, song.name))
                 count += 1
                 possibleOrder.push(song)
                 }

@@ -2,6 +2,7 @@ import {playAlbumSong} from "./player.js"
 import "./menu.js"
 import "./order.js"
 import {artists, currentUser} from "./firebase.js"
+import {likeSong} from "./like.js"
 
 let favTracks = []
 
@@ -13,7 +14,7 @@ function getTracks() {
     artists.forEach(artist => {
         artist.albums.forEach(album => {
             album.songs.forEach(song => {
-                if (currentUser.tracks.includes(song.name)) {
+                if (currentUser.tracks && currentUser.tracks.includes(song.name)) {
                     let list_item = document.createElement('li')
                     list_item.innerHTML = `<div class="track__card">
                     <img src="img/${song.img}.png" class="track__img">
@@ -22,8 +23,8 @@ function getTracks() {
                         <p class="track__subtitle">${artist.name}</p>
                     </div>
                     <p class="card-subtitle">0:42</p>
-                    <button class="button-icon">
-                        <img src="img/heart.svg" class="icon">
+                    <button class="button-icon" id="heart-${count}">
+                        <img src="img/heart-fill.svg" class="icon">
                     </button>
                     <button class="button-icon icon-red" id="playAlbum-${count}">
                         <img src="img/play.svg" class="icon">
@@ -32,6 +33,7 @@ function getTracks() {
                     favTracks.push(song)
                     tracksNode.appendChild(list_item)
                     document.getElementById(`playAlbum-${count}`).addEventListener("click", playAlbumSong.bind(this, count, favTracks))
+                    document.getElementById(`heart-${count}`).addEventListener("click", likeSong.bind(this, count, song.name))  
                     count += 1
                 }        
             })   
