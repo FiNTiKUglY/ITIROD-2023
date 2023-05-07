@@ -20,7 +20,7 @@ function getTracks() {
                 albumTracks = album.songs
                 album.songs.forEach(song => {
                     let heart = "heart"
-                    if (currentUser.tracks && currentUser.tracks.includes(song.name)) {
+                    if (currentUser && currentUser.tracks && currentUser.tracks.includes(song.name)) {
                         heart = "heart-fill"
                     }
                     let list_item = document.createElement('li')

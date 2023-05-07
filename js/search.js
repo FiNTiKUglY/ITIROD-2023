@@ -51,7 +51,7 @@ function updateSearch() {
             album.songs.forEach(song => {
                 let heart = "heart"
                 if (song.name.toLowerCase().includes(searchValue.toLowerCase())) {
-                    if (currentUser.tracks && currentUser.tracks.includes(song.name)) {
+                    if (currentUser && currentUser.tracks && currentUser.tracks.includes(song.name)) {
                         heart = "heart-fill"
                     }
                     let list_item = document.createElement('li')
