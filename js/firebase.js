@@ -28,13 +28,13 @@ function login(email, password) {
     })
 }
 
-function register(email, password) {
+function register(email, password, nickname) {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
 
         user = userCredential.user
         document.cookie = `user=${user.uid}`
-        addUser(user.uid)
+        addUser(user.uid, nickname)
         setTimeout(function () {
             window.location.href = "index.html"
         }, 1 * 1000)
@@ -59,10 +59,10 @@ async function getUser() {
     return object
 }
 
-async function addUser(id) {
+async function addUser(id, nickname) {
     let newUser = {
         id: id,
-        name: "default"
+        name: nickname
     }
     return await fetch(`https://musicplayer-f71a2-default-rtdb.europe-west1.firebasedatabase.app/users/${newUser.id}.json`, {
         method: 'put',

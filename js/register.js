@@ -8,5 +8,6 @@ register_button.addEventListener("click", (e) => {
     e.preventDefault()
     let email = document.getElementById("user_email").value
     let password = document.getElementById("user_password").value
-    register(email, password)
+    let nickname = document.getElementById("user_name").value
+    register(email, password, nickname)
 })
