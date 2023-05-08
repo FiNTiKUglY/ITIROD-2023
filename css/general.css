@@ -8,7 +8,7 @@ body {
     width: 100%;
     height: 100vh;
     background-color: #ABA6A6;
-    display: grid;
+    display: flex;
     place-items: center;
 }
 

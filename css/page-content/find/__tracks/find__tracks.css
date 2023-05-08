@@ -1,5 +1,6 @@
 .find__tracks {
     width: 100%;
-    height: calc(92% - 340px);
+    height: 100%;
+    min-height: 150px;
     overflow: auto;
 }
