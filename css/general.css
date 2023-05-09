@@ -9,6 +9,7 @@ body {
     height: 100vh;
     background-color: #ABA6A6;
     display: flex;
+    position: fixed;
     place-items: center;
 }
 
