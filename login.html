@@ -13,7 +13,13 @@
         <link rel="stylesheet" href="css/icon/icon.css">
     </head>
     <body>
-        <aside class="menu">
+        <button class="button-icon menu__button" id="menu-button">
+            <img src="img/menu.svg" class="menu__icon">
+        </button>
+        <button class="button-icon order__button" id="order-button">
+            <img src="img/order-menu.svg" class="menu__icon">
+        </button>
+        <aside class="menu" id="menu">
             <nav>
                 <div class="menu__item menu__item-size menu__logo">
                     <img src="img/sound-mute.svg" class="menu__icon">
@@ -39,54 +45,18 @@
                     </div>
                 </a>
                 <hr>
-                <a class="menu__link" href="favourite.html">
-                    <div class="menu__item menu__item-size menu__main">
-                        <button class="button-icon">
-                            <img src="img/heart.svg" class="menu__icon">
-                        </button>
-                        <p class="link-container">Любимые</p>
-                    </div>
-                </a>
-                <hr>
                 <div class="menu__albums">
                     <h1 class="white-title white-title-size">Альбомы</h1>
                     <hr>
                     <ul class="link-container">
-                        <li><a class="menu__sublink" href="album.html">Название альбома</a></li>
-                        <li><a class="menu__sublink" href="album.html">Название альбома</a></li>
-                        <li><a class="menu__sublink" href="album.html">Название альбома</a></li>
-                        <li><a class="menu__sublink" href="album.html">Название альбома</a></li>
                     </ul>
                 </div>
             </nav>
         </aside>
-        <section class="sideorder">
-            <h1 class="white-title white-title-size">Очередь</h1>
-            <hr>
-            <ul class="track__container-mini">
-                <li>
-                    <div class="track__card-mini">
-                        <img src="img/test-img.png" class="track__img-mini">
-                        <div class="track__description">
-                            <p class="track__title">Трек</p>
-                            <p class="track__subtitle">Исполнитель</p>
-                        </div> 
-                    </div>
-                </li>
-                <li>
-                    <div class="track__card-mini">
-                        <img src="img/test-img.png" class="track__img-mini">
-                        <div class="track__description">
-                            <p class="track__title">Трек</p>
-                            <p class="track__subtitle">Исполнитель</p>
-                        </div> 
-                    </div>
-                </li>
-            </ul>
-        </section>
         <main class="page-content">
             <section class="auth">
                 <h1 class="auth__title">Вход</h1>
+                <p class="error__title" id="error"></p>
                 <form>
                     <div class="auth__form">
                         <input class="auth__input" type="text" placeholder="Логин" id="user_email">
@@ -96,6 +66,12 @@
                 </form>
             </section>
         </main>
+        <section class="sideorder" id="order">
+            <h1 class="white-title white-title-size">Очередь</h1>
+            <hr>
+            <ul class="track__container-mini">
+            </ul>
+        </section>
         <section class="player">
             <div class="player__track">
                 <img src="img/test-img.png" class="player__track__img">

@@ -1,11 +1,11 @@
 @media screen and (min-width: 1000px) {
     .sideorder {
-        width: 15%;
+        width: 100%;
+        max-width: 250px;
         height: 100%;
         background-color: #333030;
         padding-bottom: 70px;
         display: block;
-        position: fixed;
         z-index: 0;
         top: 0;
         right: 0;

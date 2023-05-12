@@ -1,3 +1,4 @@
+import { getAudio, getImage } from "./firebase.js"
 import {fillOrder} from "./order.js"
 
 let songs = []
@@ -19,7 +20,7 @@ function playSong() {
     }
 }
 
-function nextSong() {
+async function nextSong() {
     if (!repeat) {
         index += 1
     }
@@ -27,17 +28,17 @@ function nextSong() {
         index = 0
     }
     audio.pause()
-    loadSong(songs[index])
+    await loadSong(songs[index])
     playSong()
 }
 
-function prevSong() {
+async function prevSong() {
     index -= 1
     if (index == -1) {
         index = 0
     }
     audio.pause()
-    loadSong(songs[index])
+    await loadSong(songs[index])
     playSong()
 }
 
@@ -103,21 +104,21 @@ function setVolume(volume) {
     document.getElementById("curr-volume").innerHTML = `${Math.trunc(audio.volume * 100)}%`
 }
 
-function loadSong(song) {
+async function loadSong(song) {
     let player = document.getElementById("curr-track")
-    player.innerHTML = `<img src="img/${song.img}.png" class="player__track__img">
+    player.innerHTML = `<img src="${await getImage(song.img)}" class="player__track__img">
     <div class="player__track__description">
         <p class="player__track__description__title">${song.name}</p>
         <p class="player__track__description__subtitle">${song.artist}</p>
     </div>`
-    audio.src = `audio/${song.audio}.mp3`
+    audio.src = await getAudio(song.audio)
 }
 
-function playAlbumSong(newIndex, possibleOrder) {
+async function playAlbumSong(newIndex, possibleOrder) {
     fillOrder(possibleOrder)
     songs = possibleOrder.slice()
     index = newIndex
-    loadSong(songs[index])
+    await loadSong(songs[index])
     playSong()
 }
 
