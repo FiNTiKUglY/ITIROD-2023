@@ -1,4 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js"
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-storage.js"
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js"
 
 const firebaseConfig = {
@@ -13,6 +14,7 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
+const storage = getStorage(app)
 export let user = auth.userCredential
 console.log()
 
@@ -130,4 +132,24 @@ async function removeAlbumFromFavorite(album) {
     });
 }
 
-export {login, register, logout, addTrackToFavorite, removeTrackFromFavorite, addAlbumToFavorite, removeAlbumFromFavorite}
+async function getAudio(filename) {
+    let returnUrl = ""
+    var file = ref(storage, `audio/${filename}.mp3`);
+    await getDownloadURL(file)
+        .then((url) => {
+            returnUrl = url
+    })
+    return returnUrl
+}
+
+async function getImage(filename) {
+    let returnUrl = ""
+    var file = ref(storage, `img/${filename}.png`);
+    await getDownloadURL(file)
+        .then((url) => {
+            returnUrl = url
+    })
+    return returnUrl
+}
+
+export {login, register, logout, addTrackToFavorite, removeTrackFromFavorite, addAlbumToFavorite, removeAlbumFromFavorite, getAudio, getImage}
